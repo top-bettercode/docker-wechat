@@ -1,7 +1,7 @@
 #!/bin/bash
 
 user="$USER"  
-logfile="/root/app.log"
+userhome="/root"
 
 sed -i "s/:$AUDIO_GID:/:11$AUDIO_GID:/" /etc/group
 sed -i "s/:$VIDEO_GID:/:11$VIDEO_GID:/" /etc/group
@@ -22,20 +22,14 @@ then
 fi
 
 if [ "$user"x != "root"x ]; then
-    logfile="/home/$user/app.log"
+    userhome="/home/$user"
 fi
 
 if [ ! -e "/opt/deepinwine/apps/Deepin-$APP/Initialized" ]; then
     echo "初始化用户"
-    if [ "$user"x != "root"x ]; then
-        chown -R "$user:$user" /WeChatFiles
-        if [ ! -e "/home/$user/WeChat Files" ]; then
-            ln -s "/WeChatFiles" "/home/$user/WeChat Files"
-        fi
-    else
-        if [ ! -e "/root/WeChat Files" ]; then
-            ln -s "/WeChatFiles" "/root/WeChat Files"
-        fi
+    chown -R "$user:$user" /WeChatFiles
+    if [ ! -e "$userhome/WeChat Files" ]; then
+        ln -s "/WeChatFiles" "$userhome/WeChat Files"
     fi
     touch /opt/deepinwine/apps/Deepin-$APP/Initialized
 fi
@@ -47,8 +41,7 @@ if [ "$1" ]; then
     deepin-wine $1
 else
     echo "启动 $APP"
-    nohup /opt/deepinwine/apps/Deepin-$APP/run.sh >"$logfile" &
-    tail -fn 0 "$logfile"
+    /run.sh
 fi
 
 exit 0

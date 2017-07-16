@@ -16,5 +16,7 @@ ENV APP=WeChat \
     UID=1000
 
 ADD entrypoint.sh /
-RUN chmod +x /entrypoint.sh
+ADD run.sh /
+RUN chmod +x /entrypoint.sh && \
+    chmod +x /run.sh
 ENTRYPOINT ["/entrypoint.sh"]
