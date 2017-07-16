@@ -8,7 +8,12 @@ RUN apt-get update && \
 
 VOLUME ["/WeChatFiles"]
 
-ENV USER=root
+ENV APP=WeChat \
+    USER=root \
+    AUDIO_GID=63 \
+    VIDEO_GID=39 \
+    GID=1000 \
+    UID=1000
 
 ADD entrypoint.sh /
 RUN chmod +x /entrypoint.sh
