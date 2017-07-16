@@ -35,7 +35,7 @@ if [ ! -e "/opt/deepinwine/apps/Deepin-$APP/Initialized" ]; then
 fi
 
 echo "use:$user"
-su - "$user" <<EOF
+su "$user" <<EOF
 if [ "$1" ]; then
     echo "deepin-wine $1"
     deepin-wine $1
