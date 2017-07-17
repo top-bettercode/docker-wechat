@@ -6,10 +6,7 @@ RUN apt-get update && \
     apt-get -y autoremove && apt-get clean -y && apt-get autoclean -y && \
     rm -rf var/lib/apt/lists/* var/cache/apt/* var/log/*
 
-VOLUME ["/WeChatFiles"]
-
 ENV APP=WeChat \
-    USER=root \
     AUDIO_GID=63 \
     VIDEO_GID=39 \
     GID=1000 \
@@ -18,5 +15,15 @@ ENV APP=WeChat \
 ADD entrypoint.sh /
 ADD run.sh /
 RUN chmod +x /entrypoint.sh && \
-    chmod +x /run.sh
+    chmod +x /run.sh && \
+    groupadd -o -g $GID wechat && \
+    groupmod -o -g $AUDIO_GID audio && \
+    groupmod -o -g $VIDEO_GID video && \
+    useradd -d "/home/wechat" -m -o -u $UID -g wechat -G audio,video wechat && \
+    mkdir /WeChatFiles && \
+    chown -R wechat:wechat /WeChatFiles && \
+    ln -s "/WeChatFiles" "/home/wechat/WeChat Files"
+
+VOLUME ["/WeChatFiles"]
+
 ENTRYPOINT ["/entrypoint.sh"]
