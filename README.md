@@ -15,7 +15,6 @@ services:
   wechat:
     image: bestwu/wechat
     container_name: wechat
-    # restart: always
     devices:
       - /dev/snd
     volumes:
@@ -33,7 +32,7 @@ services:
 或
 
 ```bash
-    docker run -d --name wechat --device /dev/snd --net=host \
+    docker run -d --name wechat --device /dev/snd \
     -v /tmp/.X11-unix:/tmp/.X11-unix \
     -v /home/peter/WeChatFiles:/WeChatFiles \
     -e DISPLAY=unix$DISPLAY \
