@@ -25,9 +25,9 @@ services:
       - QT_IM_MODULE=fcitx
       - XMODIFIERS=@im=fcitx
       - GTK_IM_MODULE=fcitx
-      - AUDIO_GID=63 # 主机audio gid 解决声音设备访问权限问题
-      - GID=1000 # 主机当前用户 gid 解决挂载目录访问权限问题
-      - UID=1000 # 主机当前用户 uid 解决挂载目录访问权限问题
+      - AUDIO_GID=63 # 可选 默认63（fedora） 主机audio gid 解决声音设备访问权限问题
+      - GID=1000 # 可选 默认1000 主机当前用户 gid 解决挂载目录访问权限问题
+      - UID=1000 # 可选 默认1000 主机当前用户 uid 解决挂载目录访问权限问题
 ```
 或
 
