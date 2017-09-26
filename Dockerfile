@@ -12,11 +12,7 @@ ENV APP=WeChat \
     GID=1000 \
     UID=1000
 
-ADD entrypoint.sh /
-ADD run.sh /
-RUN chmod +x /entrypoint.sh && \
-    chmod +x /run.sh && \
-    groupadd -o -g $GID wechat && \
+RUN groupadd -o -g $GID wechat && \
     groupmod -o -g $AUDIO_GID audio && \
     groupmod -o -g $VIDEO_GID video && \
     useradd -d "/home/wechat" -m -o -u $UID -g wechat -G audio,video wechat && \
@@ -26,4 +22,8 @@ RUN chmod +x /entrypoint.sh && \
 
 VOLUME ["/WeChatFiles"]
 
+ADD entrypoint.sh /
+ADD run.sh /
+RUN chmod +x /entrypoint.sh && \
+    chmod +x /run.sh
 ENTRYPOINT ["/entrypoint.sh"]
