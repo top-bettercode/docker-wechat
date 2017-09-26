@@ -7,7 +7,6 @@ if [ $UID != $(echo `id -u wechat`) ]; then
     usermod -o -u $UID wechat
 fi
 chown -R wechat:wechat /WeChatFiles
-chown -R wechat:wechat /home/wechat
 
 su wechat <<EOF
 if [ "$1" ]; then
