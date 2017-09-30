@@ -5,9 +5,22 @@
 ```bash
     xhost +
 ```
+
+## 查看系统audio gid
+
+```bash
+  cat /etc/group | grep audio
+```
+
+fedora 26 结果：
+
+```bash
+audio:x:63:
+```
+
 ### 运行
 
-### docker-compose 
+### docker-compose
 
 ```yml
 version: '2'
@@ -29,6 +42,7 @@ services:
       - GID=1000 # 可选 默认1000 主机当前用户 gid 解决挂载目录访问权限问题
       - UID=1000 # 可选 默认1000 主机当前用户 uid 解决挂载目录访问权限问题
 ```
+
 或
 
 ```bash
