@@ -1,3 +1,5 @@
+[![Docker Image](https://img.shields.io/badge/docker%20image-available-green.svg)](https://hub.docker.com/r/bestwu/wechat/)
+
 ### 准备工作
 
 允许所有用户访问X11服务,运行命令:
