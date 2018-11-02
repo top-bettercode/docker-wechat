@@ -3,8 +3,12 @@ LABEL maintainer='Peter Wu <piterwu@outlook.com>'
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends deepin.com.wechat && \
-    apt-get -y autoremove && apt-get clean -y && apt-get autoclean -y && \
-    rm -rf var/lib/apt/lists/* var/cache/apt/* var/log/*
+    apt-get -y autoremove --purge && apt-get autoclean -y && apt-get clean -y && \
+    find /var/lib/apt/lists -type f -delete && \
+    find /var/cache -type f -delete && \
+    find /var/log -type f -delete && \
+    find /usr/share/doc -type f -delete && \
+    find /usr/share/man -type f -delete
 
 ENV APP=WeChat \
     AUDIO_GID=63 \
