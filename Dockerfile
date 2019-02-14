@@ -22,12 +22,11 @@ RUN groupadd -o -g $GID wechat && \
     useradd -d "/home/wechat" -m -o -u $UID -g wechat -G audio,video wechat && \
     mkdir /WeChatFiles && \
     chown -R wechat:wechat /WeChatFiles && \
-    ln -s "/WeChatFiles" "/home/wechat/WeChat Files"
+    ln -s "/WeChatFiles" "/home/wechat/WeChat Files" && \
+    sed -i "s/WeChat.exe\" &/WeChat.exe\"/g" "/opt/deepinwine/tools/run.sh"
 
 VOLUME ["/WeChatFiles"]
 
 ADD entrypoint.sh /
-ADD run.sh /
-RUN chmod +x /entrypoint.sh && \
-    chmod +x /run.sh
+RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]
