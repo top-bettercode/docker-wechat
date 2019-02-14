@@ -23,7 +23,7 @@ RUN groupadd -o -g $GID wechat && \
     mkdir /WeChatFiles && \
     chown -R wechat:wechat /WeChatFiles && \
     ln -s "/WeChatFiles" "/home/wechat/WeChat Files" && \
-    sed -i "s/WeChat.exe\" &/WeChat.exe\"/g" "/opt/deepinwine/tools/run.sh"
+    sed -i 's/WeChat.exe" &/WeChat.exe"/g' "/opt/deepinwine/tools/run.sh"
 
 VOLUME ["/WeChatFiles"]
 
