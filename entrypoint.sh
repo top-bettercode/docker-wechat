@@ -11,14 +11,15 @@ fi
 chown wechat:wechat /WeChatFiles
 
 su wechat <<EOF
-
-if [ "$1" ]; then
-    echo "deepin-wine $1"
-    deepin-wine $1
-else
     echo "启动 $APP"
     "/opt/deepinwine/apps/Deepin-$APP/run.sh"
-fi
-
-exit 0
+   sleep 300
 EOF
+
+while test -n "`pidof WeChat.exe`"
+do
+    sleep 60
+done
+echo "退出"
+
+

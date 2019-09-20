@@ -1,7 +1,8 @@
 FROM bestwu/wine:i386
 LABEL maintainer='Peter Wu <piterwu@outlook.com>'
 
-RUN apt-get update && \
+RUN echo 'deb https://mirrors.aliyun.com/deepin stable main non-free contrib' > /etc/apt/sources.list && \
+    apt-get update && \
     apt-get install -y --no-install-recommends deepin.com.wechat && \
     apt-get -y autoremove --purge && apt-get autoclean -y && apt-get clean -y && \
     find /var/lib/apt/lists -type f -delete && \
