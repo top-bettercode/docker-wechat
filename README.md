@@ -1,3 +1,5 @@
+个人定制版，解决Ubuntu 20.04下wine system tray的显示错误和不能显示独立消息窗口的bug
+
 [![Docker Image](https://img.shields.io/badge/docker%20image-available-green.svg)](https://hub.docker.com/r/bestwu/wechat/)
 
 本镜像基于[深度操作系统](https://www.deepin.org/download/)
