@@ -1,5 +1,5 @@
 FROM bestwu/wine:i386
-LABEL maintainer='Peter Wu <piterwu@outlook.com>'
+LABEL maintainer='Xin Zhou <x_zhou6@yahoo.com>'
 
 RUN echo 'deb https://mirrors.aliyun.com/deepin stable main non-free contrib' > /etc/apt/sources.list && \
     apt-get update && \
@@ -10,6 +10,11 @@ RUN echo 'deb https://mirrors.aliyun.com/deepin stable main non-free contrib' > 
     find /var/log -type f -delete && \
     find /usr/share/doc -type f -delete && \
     find /usr/share/man -type f -delete
+
+COPY files.7z /tmp/files.7z
+
+RUN set -xe && \
+    mv /tmp/files.7z /opt/deepinwine/apps/Deepin-WeChat/files.7z
 
 ENV APP=WeChat \
     AUDIO_GID=63 \
