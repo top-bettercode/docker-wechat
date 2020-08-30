@@ -2,6 +2,8 @@
 
 test -d $HOME/wine-WeChat || mkdir $HOME/wine-WeChat
 
+cat partfile* > files.7z
+
 docker build --tag docker-wechat:1.0 .
 
 docker run -d  --ipc=host --name wechat --device /dev/snd \
