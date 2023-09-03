@@ -1,0 +1,37 @@
+
+/.gradletasknamecache
+
+.~*
+
+/logs
+/*/logs
+
+bin
+.vscode
+.gradle
+.svn
+.fleet
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+target
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+out
+classes
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+nbdist/
+.nb-gradle/
