@@ -1,0 +1,24 @@
+version: '2'
+services:
+  wechat:
+    image: bestwu/wechat
+    container_name: wechat
+    ipc: host
+    network_mode: host
+    devices:
+      - /dev/snd
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - /run/user/1000/pulse/native:/run/user/1000/pulse/native
+      - /home/peter/WeChatFiles:/WeChatFiles
+#      - /local:/local
+#      - /data:/data
+    environment:
+      # - DEEPIN_WINE_SCALE=2
+      - DISPLAY=$DISPLAY
+      - PULSE_SERVER=unix:/run/user/1000/pulse/native
+      - XDG_RUNTIME_DIR=/run/user/1000
+      - QT_IM_MODULE=fcitx
+      - XMODIFIERS=@im=fcitx
+      - GTK_IM_MODULE=fcitx
+      # - AUDIO_GID=29
