@@ -4,7 +4,7 @@
 
 镜像基于[archlinux](https://www.archlinux.org/download/)
 
-第一次运行失败时，进入窗口重新运行
+第一次运行失败时，进入容器重新运行
 
 ```bash
 docker exec -it wechat /opt/apps/com.qq.weixin.deepin/files/run.sh
