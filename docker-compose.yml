@@ -14,7 +14,7 @@ services:
 #      - /local:/local
 #      - /data:/data
     environment:
-      # - DEEPIN_WINE_SCALE=2
+      - DEEPIN_WINE_SCALE=2
       - DISPLAY=$DISPLAY
       - PULSE_SERVER=unix:/run/user/1000/pulse/native
       - XDG_RUNTIME_DIR=/run/user/1000
