@@ -7,7 +7,10 @@
 第一次运行失败时，进入容器重新运行
 
 ```bash
-docker exec -it wechat /opt/apps/com.qq.weixin.deepin/files/run.sh
+docker exec -it wechat bash
+```
+```bash docker
+/opt/apps/com.qq.weixin.deepin/files/run.sh
 ```
 
 微信版本：3.9.0
