@@ -1,4 +1,3 @@
-version: '2'
 services:
   wechat:
     image: bestwu/wechat

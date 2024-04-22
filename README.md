@@ -58,7 +58,6 @@ apt-get install -y deepin.com.wechat
 ### docker-compose
 
 ```yml
-version: '2'
 services:
   wechat:
     image: bestwu/wechat
